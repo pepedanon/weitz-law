@@ -23,7 +23,7 @@
           --paper-2: #111826;
           --line: #263046;
           --text: #e8e4d8;
-          --text-soft: #9aa3b2;
+          --text-soft: #b9c2d0;
           --card: #131b29;
           --ink: #e8e4d8;
         }
@@ -221,6 +221,7 @@
         transition: color 0.25s, border-color 0.25s, gap 0.25s;
       }
       .hero-more:hover { color: #ece7da; border-color: #ece7da; gap: 0.85rem; }
+      .hero-cta-note { margin: 0.85rem auto 0; max-width: 38ch; color: #d1d6df; font-size: 0.86rem; line-height: 1.5; text-align: center; }
       @media (prefers-reduced-motion: no-preference) {
         .hero-in > *, .hero-cred { animation: heroUp 0.95s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
         .hero-in > *:nth-child(2) { animation-delay: 0.07s; }
@@ -278,7 +279,7 @@
         max-width: 22ch;
       }
       h2.title.center { margin-inline: auto; text-align: center; }
-      .section-sub { color: var(--text-soft); max-width: 58ch; margin: 1.1rem 0 0; font-weight: 300; }
+      .section-sub { color: var(--text-soft); max-width: 58ch; margin: 1.1rem 0 0; font-weight: 400; }
       .section-sub.center { margin-inline: auto; text-align: center; }
 
       /* ---------- Results strip ---------- */
@@ -302,10 +303,10 @@
       @media (max-width: 560px) { .results-grid { grid-template-columns: 1fr; } }
 
       /* ---------- Practice areas ---------- */
-      .practice-list { margin-top: 2.6rem; display: grid; gap: 0.9rem; }
+      .practice-list { margin-top: 2rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
       .practice-row {
-        display: grid; grid-template-columns: 76px 1fr; gap: 1.6rem;
-        align-items: start; padding: 1.55rem 1.8rem 1.45rem;
+        display: grid; grid-template-columns: 40px 1fr; gap: 0.9rem;
+        align-items: start; padding: 1.2rem 1.25rem;
         background: var(--card); border: 1px solid var(--line); border-top: 1px solid var(--gold);
         text-decoration: none; color: var(--text);
         transition: background 0.3s, border-color 0.3s;
@@ -320,20 +321,23 @@
       .practice-row h3 { margin: 0; font-size: 1.55rem; font-weight: 600; color: var(--ink); line-height: 1.2; transition: color 0.3s; }
       @media (prefers-color-scheme: dark) { .practice-row h3 { color: var(--text); } }
       .practice-row:hover h3 { color: #f2edde; }
-      .practice-row p { margin: 0.55rem 0 0; color: var(--text-soft); font-size: 0.95rem; font-weight: 300; max-width: 62ch; transition: color 0.3s; }
+      .practice-row p { margin: 0.4rem 0 0; color: var(--text-soft); font-size: 0.94rem; font-weight: 400; max-width: 48ch; transition: color 0.3s; }
       .practice-row:hover p { color: #c3cad6; }
       .practice-row .explore {
-        display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 1.05rem;
+        display: inline-flex; align-items: center; gap: 0.55rem; margin-top: 0.7rem;
         font-size: 0.68rem; font-weight: 700; letter-spacing: 0.22em;
         text-transform: uppercase; color: var(--gold);
         border-bottom: 1px solid transparent; padding-bottom: 0.2rem;
         transition: color 0.3s, border-color 0.3s, gap 0.3s;
       }
       .practice-row:hover .explore { color: var(--gold-2); border-color: var(--gold-2); gap: 0.85rem; }
+      .practice-help { margin: 1.5rem 0 0; color: var(--text-soft); }
+      .practice-help a { color: var(--ink); text-underline-offset: 0.2em; }
       @media (max-width: 760px) {
+        .practice-list { grid-template-columns: 1fr; gap: 0.65rem; }
         .practice-row { grid-template-columns: 42px 1fr; gap: 0.9rem; padding: 1.15rem 1.1rem 1.05rem; }
         .practice-row h3 { font-size: 1.35rem; }
-        .practice-row p { font-size: 0.9rem; margin-top: 0.4rem; }
+        .practice-row p { font-size: 0.94rem; margin-top: 0.35rem; }
         .practice-row .explore { margin-top: 0.75rem; }
       }
 
@@ -389,7 +393,7 @@
       /* ---------- Wall of love ---------- */
       .wall-wrap { background: var(--paper-2); }
       .wall-note {
-        text-align: center; font-size: 0.78rem; letter-spacing: 0.06em;
+        text-align: center; font-size: 0.88rem; letter-spacing: 0.02em;
         color: var(--text-soft); margin: 1rem auto 0; max-width: 60ch;
       }
       .wall {
@@ -427,40 +431,23 @@
 
       /* ---------- Full-arc band ---------- */
       .arc { background: var(--navy-deep); color: var(--on-dark); }
-      .arc-in { padding: 6rem 0; }
+      .arc-in { padding: 4.5rem 0; }
       .arc h2.title { color: #f2edde; }
       .arc .kicker { color: var(--gold-2); }
-      .arc .section-sub { color: #aeb6c4; }
-      .arc-tabs {
-        display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-        background: rgba(198,168,105,.35); border: 1px solid rgba(198,168,105,.35);
-        margin-top: 3rem;
-      }
-      .arc-tab {
-        background: var(--navy-deep); border: none; cursor: pointer; text-align: left;
-        padding: 1.4rem 1.5rem 1.3rem; color: #aeb6c4;
-        font-family: "Libre Franklin", sans-serif;
-        transition: background 0.3s, color 0.3s;
-      }
-      .arc-tab .arc-num {
-        display: block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.3em;
-        text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
-      }
-      .arc-tab .arc-name {
-        font-family: "Cormorant Garamond", Georgia, serif;
-        font-size: 1.5rem; font-weight: 600; line-height: 1.1; color: #ece7da;
-      }
-      .arc-tab:hover { background: var(--ink-2); }
-      .arc-tab[aria-selected="true"] { background: var(--gold); }
-      .arc-tab[aria-selected="true"] .arc-num { color: #10151f; opacity: 0.75; }
-      .arc-tab[aria-selected="true"] .arc-name { color: #10151f; }
-      .arc-panel { border: 1px solid rgba(198,168,105,.35); border-top: none; padding: 2.6rem 2.8rem 2.4rem; }
-      .arc-panel h3 { margin: 0; font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 500; color: #f2edde; line-height: 1.15; max-width: 26ch; }
-      .arc-panel p { margin: 1rem 0 0; max-width: 64ch; font-weight: 300; color: #c3cad6; }
-      .arc-panel .arc-cta { margin-top: 1.8rem; }
+      .arc .section-sub { color: #c3cad6; }
+      .arc-overview { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; margin-top: 2rem; }
+      .arc-step { border: 1px solid rgba(198,168,105,.4); padding: 1.4rem; }
+      .arc-step span { color: var(--gold-2); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+      .arc-step h3 { color: #f2edde; font-size: 1.65rem; font-weight: 600; line-height: 1.15; margin: 0.55rem 0; }
+      .arc-step p { color: #c3cad6; font-size: 0.95rem; line-height: 1.55; margin: 0; }
+      .arc-next { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.6rem; }
+      .arc-next p { color: #c3cad6; font-size: 0.9rem; line-height: 1.5; max-width: 30ch; margin: 0; }
       @media (max-width: 760px) {
-        .arc-tabs { grid-template-columns: 1fr; }
-        .arc-panel { padding: 1.9rem 1.4rem 1.8rem; }
+        .arc-in { padding: 3.6rem 0; }
+        .arc-overview { grid-template-columns: 1fr; }
+        .arc-step { padding: 1rem 1.15rem; }
+        .arc-next { flex-direction: column; align-items: stretch; }
+        .arc-next .btn { justify-content: center; }
       }
 
       /* ---------- Engagement steps ---------- */
@@ -546,7 +533,7 @@
       .contact-line .v a { text-decoration: none; }
       .contact-line .v a:hover { color: var(--gold); }
       form.consult { display: grid; gap: 1rem; }
-      form.consult label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); display: block; margin-bottom: 0.45rem; }
+      form.consult label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-soft); display: block; margin-bottom: 0.45rem; }
       form.consult input, form.consult select, form.consult textarea {
         width: 100%; font: inherit; font-size: 0.95rem; line-height: 1.5; color: var(--text);
         background: var(--card); border: 1px solid var(--line);
@@ -565,14 +552,14 @@
       }
       form.consult .consent {
         display: flex; gap: 0.7rem; align-items: flex-start;
-        font-size: 0.8rem; font-weight: 400; letter-spacing: 0.01em; text-transform: none;
+        font-size: 0.9rem; font-weight: 400; letter-spacing: 0.01em; text-transform: none;
         color: var(--text-soft); line-height: 1.55; cursor: pointer; margin-bottom: 0;
       }
       form.consult .consent input {
         width: 1.05rem; height: 1.05rem; flex: none; margin-top: 0.18rem;
         padding: 0; accent-color: var(--gold); cursor: pointer;
       }
-      .form-note { font-size: 0.78rem; color: var(--text-soft); margin: 0; }
+      .form-note { font-size: 0.9rem; color: var(--text-soft); margin: 0; line-height: 1.55; }
       .form-head { margin-bottom: 1.5rem; }
       .form-head h3 {
         margin: 0; font-size: 1.65rem; font-weight: 600; color: var(--ink); line-height: 1.15;
@@ -580,7 +567,7 @@
       }
       @media (prefers-color-scheme: dark) { .form-head h3 { color: var(--text); } }
       .form-head h3 svg { width: 20px; height: 20px; flex: none; color: var(--gold); }
-      .form-head p { margin: 0.55rem 0 0; font-size: 0.9rem; font-weight: 300; color: var(--text-soft); }
+      .form-head p { margin: 0.55rem 0 0; font-size: 1rem; font-weight: 400; color: var(--text-soft); }
       .more-toggle {
         background: none; border: none; padding: 0.2rem 0; cursor: pointer;
         font-family: "Libre Franklin", sans-serif; font-size: 0.72rem; font-weight: 700;
@@ -614,7 +601,7 @@
       .foot-brand p { font-weight: 300; font-size: 0.9rem; max-width: 36ch; }
       .legal {
         border-top: 1px solid rgba(236,231,218,.14); margin-top: 3rem; padding-top: 1.6rem;
-        font-size: 0.74rem; font-weight: 300; color: #8b95a7; line-height: 1.7;
+        font-size: 0.85rem; font-weight: 400; color: #b9c2d0; line-height: 1.7;
       }
       .legal p { margin: 0 0 0.7rem; }
       @media (max-width: 800px) { .foot-grid { grid-template-columns: 1fr; gap: 2.2rem; } }
@@ -633,7 +620,15 @@
       .mobile-bar .mb-book { background: var(--gold); color: #10151f; }
       @media (max-width: 760px) {
         .mobile-bar { display: grid; }
-        body { padding-bottom: 3.6rem; }
+        body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+        section.block { padding: 4rem 0; }
+        section.block.tight { padding: 3.6rem 0; }
+        footer.site { padding-bottom: 2.5rem; }
+        .mobile-bar a { min-height: 4.5rem; display: grid; place-items: center; font-size: 0.82rem; line-height: 1.25; }
+        .kicker, .practice-row .explore, .more-toggle { font-size: 0.78rem; letter-spacing: 0.14em; }
+        .contact-line .k, .foot-grid h4 { font-size: 0.76rem; letter-spacing: 0.15em; }
+        .review .matter, .pq figcaption { font-size: 0.83rem; letter-spacing: 0.06em; }
+        .chat-foot { font-size: 0.82rem; }
       }
 
       /* ---------- Ask Counsel chat (design concept) ---------- */
@@ -730,22 +725,22 @@
         color: var(--text-soft); text-align: center; flex: none;
       }
       @media (max-width: 760px) {
-        .chat-root { right: 1rem; bottom: calc(4.75rem + env(safe-area-inset-bottom)); }
-        .chat-panel { max-height: calc(100dvh - 13rem); }
+        .chat-root { right: 1rem; bottom: calc(5.25rem + env(safe-area-inset-bottom)); }
+        .chat-panel { max-height: calc(100dvh - 13.5rem); }
         /* Compact launcher on phones, floated clear of the hero CTA row
            (the hero carries extra bottom room on small screens). */
-        .chat-launch { padding: 0.72rem 1.05rem; font-size: 0.7rem; }
+        .chat-launch { padding: 0.72rem 1.05rem; font-size: 0.78rem; }
         /* Shortened phone hero: eyebrow, headline, one short subline, the
            credential line, one primary CTA — with clear space below the
            buttons so the floated launcher never touches them. */
         .hero { padding-top: 5.6rem; }
         .hero-in { padding-bottom: 6.75rem; }
-        .hero-rule { margin-bottom: 1.15rem; font-size: 0.62rem; letter-spacing: 0.3em; }
+        .hero-rule { margin-bottom: 1.15rem; font-size: 0.75rem; letter-spacing: 0.2em; }
         .hero h1 { font-size: 2.4rem; }
         .hero-accent { margin-top: 0.95rem; font-size: 1.16rem; }
         .hero p.lede { display: none; }
-        .hero-bar { margin-top: 1.45rem; font-size: 0.66rem; letter-spacing: 0.18em; line-height: 1.85; }
-        .hero-bar strong { font-size: 0.76rem; }
+        .hero-bar { margin-top: 1.45rem; font-size: 0.78rem; letter-spacing: 0.1em; line-height: 1.7; }
+        .hero-bar strong { font-size: 0.82rem; }
         .hero-ctas { flex-direction: column; align-items: center; gap: 1.05rem; margin-top: 1.55rem; }
         .hero-ctas .btn { width: min(320px, 100%); justify-content: center; }
       }
@@ -895,4 +890,3 @@
         .chat-panel { transition: none; }
         .hero-bg, .band-bg { transform: none !important; }
       }
-    

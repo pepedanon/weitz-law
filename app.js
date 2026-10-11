@@ -148,7 +148,7 @@
           about: "About the Firm — Weitz Law PC | Sherman Oaks, CA",
           attorney: "Zachary Weitz, Esq. — Weitz Law PC | Sherman Oaks, CA",
           questions: "Common Questions — Weitz Law PC | Sherman Oaks, CA",
-          contact: "Schedule a Consultation — Weitz Law PC | Sherman Oaks, CA",
+          contact: "Contact Weitz Law PC | Sherman Oaks, CA",
           "estate-planning": "Estate Planning — Weitz Law PC | Sherman Oaks, CA",
           "trust-administration": "Trust Administration — Weitz Law PC | Sherman Oaks, CA",
           "trust-litigation": "Trust & Estate Litigation — Weitz Law PC | Sherman Oaks, CA",
@@ -431,28 +431,4 @@
         window.addEventListener("resize", faqRecalc);
         window.addEventListener("load", faqRecalc);
 
-        /* ----- Full-arc tabs ----- */
-        var arcTabs = Array.prototype.slice.call(document.querySelectorAll(".arc-tab"));
-        function selectArcTab(tab, focus) {
-          arcTabs.forEach(function (t) {
-            var selected = t === tab;
-            t.setAttribute("aria-selected", selected ? "true" : "false");
-            t.tabIndex = selected ? 0 : -1;
-            var p = document.getElementById(t.getAttribute("aria-controls"));
-            if (p) p.hidden = !selected;
-          });
-          if (focus) tab.focus();
-        }
-        arcTabs.forEach(function (tab, i) {
-          tab.addEventListener("click", function () { selectArcTab(tab, false); });
-          tab.addEventListener("keydown", function (e) {
-            var j = null;
-            if (e.key === "ArrowRight") j = (i + 1) % arcTabs.length;
-            else if (e.key === "ArrowLeft") j = (i - 1 + arcTabs.length) % arcTabs.length;
-            else if (e.key === "Home") j = 0;
-            else if (e.key === "End") j = arcTabs.length - 1;
-            if (j !== null) { e.preventDefault(); selectArcTab(arcTabs[j], true); }
-          });
-        });
       })();
-    
